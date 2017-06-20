@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <title>Firebase test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+	<script src="https://use.fontawesome.com/939e9dd52c.js"></script>
+</head>
+<body>
+	<div class="mainDiv" align="right">
+		<h1 align="left"> Firebase web app</h1>
+		<textarea id="mainText" placeholder="Enter text here.."></textarea>
+		<button id="submitBtn" onclick="submitClick()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+		
+	</div>
+    <!-- <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script> -->
+	
+	
+
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAE1ufHIzDsOlvSOHnD-8hEI6bkWY3yCP0",
+    authDomain: "raise-the-barr.firebaseapp.com",
+    databaseURL: "https://raise-the-barr.firebaseio.com",
+    projectId: "raise-the-barr",
+    storageBucket: "raise-the-barr.appspot.com",
+    messagingSenderId: "776695259178"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script src="C:/Users/bsmar/Desktop/RaiseTheBarr/assets/js/index.js"></script>
+<script type="text/javascript">
+
+function mlString(f) {
+    return f.toString().
+        replace(/^[^\/]+\/\*!?/, '');
+        replace(/\*\/[^\/]+$/, '');
+}
+
+function run_onload() {
+    console.log("Sample text for console");
+    var filenames = g_FOLDER_CONTENTS.match(/\S+/g);
+    var fragment = document.createDocumentFragment();
+    for (var i = 0; i < filenames.length; ++i) {
+        var extension = filenames[i].substring(filenames[i].length-3);
+        if (extension == "png" || extension == "jpg") {
+
+var iDiv = document.createElement('div');
+iDiv.id = 'images';
+iDiv.className = 'item';
+document.getElementById("image_div").appendChild(iDiv);
+iDiv.appendChild(fragment);
+
+            var image = document.createElement("img");
+            image.className = "fancybox";
+            image.src = "images/" + filenames[i];
+            fragment.appendChild(image);
+        }
+    }
+     document.getElementById("images").appendChild(fragment);
+
+}
+</script>
+</body>
+</html>
