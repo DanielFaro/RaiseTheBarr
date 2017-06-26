@@ -1,4 +1,4 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,10 +12,12 @@
 -->
 <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 <script src="assets/js/firebaseConfig.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <script src="assets/js/quiz_controller.js" defer></script>
   <script src="assets/js/question.js" defer></script>
-    <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+  <script src = "assets/js/quiz.js" defer></script>
   <link rel="stylesheet" href="assets/css/QuizStyle.css" type="text/css">
   <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 
@@ -23,28 +25,35 @@
 <body>
   <div id="quiz">
     <h1>QUIZ</h1>
+    <div class="quizstart">
+      <button id='quizstart'>Start Quiz</button>
+    </div>
+
     <hr style="margin-top: 20px">
     <p id="question"></p>
 
     <div class="buttons">
-      <button id="btn0"><span id="choice0"></span></button>
       <button id="btn1"><span id="choice1"></span></button>
       <button id="btn2"><span id="choice2"></span></button>
       <button id="btn3"><span id="choice3"></span></button>
+      <button id="btn4"><span id="choice4"></span></button>
     </div>
     <div class="submit">
-      <button id='submit'>Submit</button>
+      <button id='submit'>Next Question</button>
     </div>
+    
+    
 
     <hr style="margin-top: 50px">
     <footer>
-      <p id="progress">Question 1 of 10</p>
+      <p id="progress"></p>
     </footer>
-    <link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+	<link href="https://api.motion.ai/sdk/webchat.css" rel="stylesheet" type="text/css">
+
 <script src="https://api.motion.ai/sdk/webchat.js"></script>
-<script>
+<!--<script>
    motionAI_Init('65129?color=62a8ea&sendBtn=SEND&inputBox=Type%20something...&token=2e91ecae86129430c91e419df1bc2e44',true,400,470,'https://api.motion.ai/sdk/botbtn.png');
    /* You may also invoke motionAI_Open() to manually open the modal. */
-</script>
+</script>-->
 </body>
 </html>

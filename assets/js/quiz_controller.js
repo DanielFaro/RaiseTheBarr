@@ -1,25 +1,35 @@
-function Quiz(questions, answers){
+function QuizSlide(questions, answers, questnum){
   this.score = 0;
   this.questions = questions;
   this.questionIndex = 0;
   this.answers = answers;
+  this.questnum = questnum;
 
 }
-Quiz.prototype.getQuestionIndex = function(){
+/*Question.prototype.getQuestionIndex = function(){
+  if ((this.questionIndex) <10){
   return this.questions[this.questionIndex];
 }
-Quiz.prototype.getAnswers = function(x) {
+else {
+  return ""
+}
+}*/
+QuizSlide.prototype.getAnswers = function(x) {
   return this.answers[x];
 }
-Quiz.prototype.isEnded = function() {
-  return this.questions.length === this.questionIndex;
+QuizSlide.prototype.isEnded = function() {
+  return this.questnum === "Question10";
 }
-Quiz.prototype.guess =  function() {
-  this.questionIndex++;
-}
-Quiz.prototype.questNumDisplay = function () {
+//QuizSlide.prototype.guess =  function() {
+  //this.questionIndex = this.questionIndex + 1;
+//}
+/*Question.prototype.questNumDisplay = function () {
+  if ((this.questionIndex + 1) <10 ){
   return "Question " + (this.questionIndex + 1) + " of 10";
-}
+  } else { 
+    return "Question 10 of 10";
+  }
+}*/
 
 
   //if(this.getQuestionIndex().correctAnswer(answer)){

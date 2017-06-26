@@ -28,7 +28,7 @@ body{
 .buttons{
   margin-top: 30px;
 }
-#btn0, #btn1, #btn2, #btn3{
+#btn1, #btn2, #btn3, #btn4{
   background-color: #778897;
   width: 250px;
   font-size: 20px;
@@ -44,14 +44,20 @@ body{
 
   border: 1px solid blue;
   padding: 10px;
-  margin: 20px 0 0 300px;
+  margin: 20px 0 0 280px;
 
+}
+
+#quizstart{
+  display: block;
+  border: 1px solid red;
+  margin: 20px 0 0 300px;
 }
 #progess{
   color: #2b2b2b;
   font-size: 18px;
 }
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover{
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover{
   cursor: pointer;
   background-color: #57636e;
 }
