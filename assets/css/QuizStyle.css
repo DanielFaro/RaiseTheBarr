@@ -39,7 +39,7 @@ body{
   padding: 10px 10px;
 }
 
-#submit{
+#submit, #nxt{
   display: block;
 
   border: 1px solid blue;
@@ -50,7 +50,7 @@ body{
 
 #quizstart{
   display: block;
-  border: 1px solid red;
+  border: 1px sold red;
   margin: 20px 0 0 300px;
 }
 #progess{

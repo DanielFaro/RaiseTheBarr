@@ -11,9 +11,10 @@ var Quiz = (function(){     //Quiz is a global variable. Start of iffy
   if (i <= 10) {
 
     q.on('value', (snapshot) => {
-      //retrieve question and 4 answers from database
+      //retrieve question, 4 answers, and correct answer from database
       var questnum = "Question" + i;
       var questions = snapshot.child("Quiz1/" + questnum + "/question").val();
+      var correctAns = snapshot.child("Quiz1/" + questnum + "/Correct").val();
       var answers = [];
 
       for (x = 1; x <= 4; x++) {
@@ -33,6 +34,9 @@ var Quiz = (function(){     //Quiz is a global variable. Start of iffy
 
       document.getElementById("progress").innerHTML = "Question " + i + " of 10";
     });
+
+    //set selected answer
+   // document.getElementById('btn1').addEventListener('click', ())
 
   } else {
     // once i reaches 10
@@ -56,14 +60,21 @@ startQuizBtn.addEventListener('click',(e) => {
 });
 
 
-
-
-
-document.getElementById('submit').addEventListener('click', () => {
+document.getElementById('nxt').addEventListener('click', () => {
   if (Quiz.getQuestionIndex() != 0) {
     Quiz.populate();
   };
 })
+
+
+//UserCount = [] //push val of user for each question to sum at end of quiz.
+//once answer is clicked, the correct answer will highlight green, and the answer selected will highlight red if incorrect
+//Once last question is answered and shown correct or not, a score button will popup, then show final score, if passed, the survey
+//pops up and then the button to next module. If failed, button to retake quiz pops up. If retake, then reset users to 0 and empty the 
+//userCount array.
+
+//onclick choice set 
+//selected answer, selAnswer choicei = answer1
 
 
 
