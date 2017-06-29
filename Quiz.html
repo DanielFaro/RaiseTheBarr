@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Quiz</title>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <!--<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
--->
+  
+  
 <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 <script src="assets/js/firebaseConfig.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -19,30 +20,37 @@
   <script src="assets/js/app.js" defer></script>
   <script src = "assets/js/quiz.js" defer></script>
   <link rel="stylesheet" href="assets/css/QuizStyle.css" type="text/css">
-  <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/ContentStyle.css" type="text/css">
 
 </head>
 <body>
-  <div id="quiz">
+<div class="container-fluid col sm 12" align="center">
+  <div class="row" id="quiz">
     <h1>QUIZ</h1>
-    <div class="quizstart">
-      <button id='quizstart'>Start Quiz</button>
+    <div class="row">
+      <button class="btn btn-success" id="quizstart" align="center" style="display:block">Start Quiz</button>
     </div>
 
-    <hr style="margin-top: 20px">
-    <p id="question"></p>
-
-    <div class="buttons">
-      <button id="btn1"><span id="choice1"></span></button>
-      <button id="btn2"><span id="choice2"></span></button>
-      <button id="btn3"><span id="choice3"></span></button>
-      <button id="btn4"><span id="choice4"></span></button>
-      <button id='submit'>Submit</button>
-      <button id='nxt'>>></button>
+    <div class="row">
+		<p id="question"></p>
+	</div>
+    <div class="row">
+      <button id="btn1" class="btn-info"><span id="choice1"></span></button>
+      <button id="btn2" class="btn-info"><span id="choice2"></span></button>
+    <div class="row">
+      <button id="btn3" class="btn-info"><span id="choice3"></span></button>
+      <button id="btn4" class="btn-info"><span id="choice4"></span></button>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" id="submit" align="center" style="display:none">Submit</button>
+    </div>
+     <div class="row">
+      <button class="btn btn-primary" id="nxt" align="center" style="display:none">Next Question</button>
+    </div>
+    <div class="row">
+      <button class="btn btn-primary" id="calculate" align="center" style="display:none">Calculate Score</button>
     </div>
     
-    
-
     <hr style="margin-top: 50px">
     <footer>
       <p id="progress"></p>
@@ -54,5 +62,7 @@
    motionAI_Init('65129?color=62a8ea&sendBtn=SEND&inputBox=Type%20something...&token=2e91ecae86129430c91e419df1bc2e44',true,400,470,'https://api.motion.ai/sdk/botbtn.png');
    /* You may also invoke motionAI_Open() to manually open the modal. */
 </script>-->
+</div>
+</div>
 </body>
 </html>

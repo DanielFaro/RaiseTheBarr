@@ -1,11 +1,22 @@
 var q = db.ref('/Quizzes');   //q is a global variable
+const submit = document.getElementById('submit');
+const nxt = document.getElementById('nxt');
+const calculate = document.getElementById('calculate');
+const startQuizBtn = document.getElementById('quizstart');
+
+//QuizSlide first populates when StartQuiz is pressed, then the button is removed.
+
+startQuizBtn.addEventListener('click',(e) => {
+  Quiz.populate();
+  revealSubmit(); //show submit button the first time
+  startQuizBtn.style.display = 'none';
+});
 
 var Quiz = (function(){     //Quiz is a global variable. Start of iffy
  let question;
  let i = 0;
                                   
- const populate = () => {         //define Quiz.populate()
-  
+ const populate = () => {               //define Quiz.populate()
   i++;
 
   if (i <= 10) {
@@ -35,14 +46,14 @@ var Quiz = (function(){     //Quiz is a global variable. Start of iffy
       document.getElementById("progress").innerHTML = "Question " + i + " of 10";
     });
 
-    //set selected answer
+         //set selected answer
    // document.getElementById('btn1').addEventListener('click', ())
 
-  } else {
-    // once i reaches 10
+  // once next question button hit after 10th question submitted
+  } else {     
     document.getElementById("question").innerHTML = "The quiz is over";
-    //reset i to zero
-    i = 0;
+    calculate.style.display = 'block';                                    //show 'calculate' btn
+    i = 0;                                                               //reset i = 0
   };
  }            //end of populate()
 
@@ -53,18 +64,47 @@ var Quiz = (function(){     //Quiz is a global variable. Start of iffy
 
 })()// end of Quiz iffy
 
-var startQuizBtn = document.getElementById('quizstart');
-startQuizBtn.addEventListener('click',(e) => {
-  Quiz.populate();
-  startQuizBtn.parentNode.removeChild(startQuizBtn);
-});
+/*----------------Hide Element Functions----------------*/
 
+//toggle display for 'Submit' Button
+function revealSubmit () {
+  if (submit.style.display === "none") {
+    submit.style.display = "block";
+  } else {
+    submit.style.display = "none";
+  }
+ }
+//toggle display for 'Next Question' Button
+function revealNxt () {
+  if (Quiz.getQuestionIndex() <= 10) {
+    if (nxt.style.display === 'none') {
+      nxt.style.display = 'block';
+    } else {
+      nxt.style.display = 'none';
+    }
+  }
+}
 
-document.getElementById('nxt').addEventListener('click', () => {
-  if (Quiz.getQuestionIndex() != 0) {
+/*-------------------------Event Listeners-----------------------*/
+
+submit.addEventListener('click', () => {
+if (Quiz.getQuestionIndex() < 10){
+    revealSubmit();//hide submit
+    revealNxt();//show nxt
+} else {
+  revealSubmit();//hides submit after 10th answer is submitted
+  Quiz.populate();//populates template with i=10 to show quiz is over.
+}
+}, false);
+
+//When 'next question' is pressed, hide nxt button, show submit button, and repopulate quizSlide template
+nxt.addEventListener('click', () => {
+  if (Quiz.getQuestionIndex() < 10) {
+    revealSubmit();//show Submit again
+    revealNxt();//hide nxt again
     Quiz.populate();
-  };
-})
+  }
+});
 
 
 //UserCount = [] //push val of user for each question to sum at end of quiz.
