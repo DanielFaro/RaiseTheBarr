@@ -1,0 +1,53 @@
+/*
+    General Styles
+ 
+    Colors
+    @highlight: #196E76
+    @text: #4A4A4A;
+    @text-light: #9A9A9A
+    @body-background: #FFFFFF;
+*/
+ 
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+ 
+html {
+  box-sizing: border-box;
+  background: #FFFFFFF;
+  text-align: center;
+}
+ 
+body {
+    font-size: 1em;
+    line-height: 1.5;
+    font-family: Lucida Grande, sans-serif;
+    max-width: 43.75em; /* 880/16 */
+    margin: 0 auto;
+    padding: 0;
+    color: #4A4A4A;
+}
+ 
+ img{
+	text-align: center;
+    display: block;
+	position: absolute;
+    top: 0; bottom:0; left: 0; right:0;
+    margin: auto;
+	height: auto;
+}
+ 
+a{
+    color: inherit;
+}
+
+header{
+        text-indent: 0;
+        margin-top: .5em;
+		align: center;
+		
+}
