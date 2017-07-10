@@ -8,7 +8,7 @@ const startQuizBtn = document.getElementById('quizstart');
 
 startQuizBtn.addEventListener('click',(e) => {
   Quiz.populate();
-  revealSubmit(); //show submit button the first time
+  reveal(submit); //show submit button the first time
   startQuizBtn.style.display = 'none';
 });
 
@@ -67,15 +67,15 @@ var Quiz = (function(){     //Quiz is a global variable. Start of iffy
 /*----------------Hide Element Functions----------------*/
 
 //toggle display for 'Submit' Button
-function revealSubmit () {
-  if (submit.style.display === "none") {
-    submit.style.display = "block";
+function reveal (thing) {
+  if (thing.style.display === "none") {
+    thing.style.display = "block";
   } else {
-    submit.style.display = "none";
+    thing.style.display = "none";
   }
  }
 //toggle display for 'Next Question' Button
-function revealNxt () {
+/*function revealNxt () {
   if (Quiz.getQuestionIndex() <= 10) {
     if (nxt.style.display === 'none') {
       nxt.style.display = 'block';
@@ -83,16 +83,16 @@ function revealNxt () {
       nxt.style.display = 'none';
     }
   }
-}
+}*/
 
 /*-------------------------Event Listeners-----------------------*/
 
 submit.addEventListener('click', () => {
 if (Quiz.getQuestionIndex() < 10){
-    revealSubmit();//hide submit
-    revealNxt();//show nxt
+    reveal(submit);//hide submit
+    reveal(nxt);//show nxt
 } else {
-  revealSubmit();//hides submit after 10th answer is submitted
+  reveal(submit);//hides submit after 10th answer is submitted
   Quiz.populate();//populates template with i=10 to show quiz is over.
 }
 }, false);
@@ -100,8 +100,8 @@ if (Quiz.getQuestionIndex() < 10){
 //When 'next question' is pressed, hide nxt button, show submit button, and repopulate quizSlide template
 nxt.addEventListener('click', () => {
   if (Quiz.getQuestionIndex() < 10) {
-    revealSubmit();//show Submit again
-    revealNxt();//hide nxt again
+    reveal(submit);//show Submit again
+    reveal(nxt);//hide nxt again
     Quiz.populate();
   }
 });

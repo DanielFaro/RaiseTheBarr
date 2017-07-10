@@ -3,6 +3,12 @@ html {
   background: #FFFFFFF;
   text-align: center;
 }
+p{
+	 font: 400 20px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+	  margin-top: 20px
+}
   body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
