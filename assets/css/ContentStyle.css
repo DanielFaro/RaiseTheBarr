@@ -143,13 +143,37 @@ p{
       color: #40a5f2;
   }
   .slideanim {visibility:hidden;}
-  .slide {
+  
+  .flex-container {
+      display: flex;
+      width: 100%;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-around;
+
+    }
+
+  #slide-img, #slide-txt{
+      
       animation-name: slide;
       -webkit-animation-name: slide;
       animation-duration: 1s;
       -webkit-animation-duration: 1s;
       visibility: visible;
-  }
+      
+ }
+
+    
+
+  #slide-img {order: 2; }
+  #slide-txt {
+      order: 1; 
+      border: 1px solid black;
+      font-family: sans-serif;
+      font-size: 2em;
+      text-align: center;
+} 
+
   @keyframes slide {
     0% {
       opacity: 0;

@@ -9,10 +9,16 @@
 	  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	  <link rel="stylesheet" href="assets/css/ContentStyle.css">
+		
 	  	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
-  	<script src="assets/js/img.js" defer></script>
+			<script src="assets/js/firebaseConfig.js"></script>
+			<script src="assets/js/content_controller.js" defer></script>
+			<script src="assets/js/content.js" defer></script>
+			
+  	
 	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
     
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	
@@ -36,7 +42,7 @@
   	  <div class="container">
   		    <div class="collapse navbar-collapse" id="myNavbar">
   		        <ul class="nav navbar-nav navbar-right">
-        			<li><a href="./Content">TRAINING</a></li>
+        			<li><a href="./Content.html">TRAINING</a></li>
         			<li><a href="./Quiz.html">QUIZ</a></li>
         			<li><a href="#Logout">LOGOUT</a></li>
         		  </ul>
@@ -59,14 +65,27 @@
   		<div class="panel-body">
   			<p>
               <div class="media-left">
-				<img id="img" class="media-object">
-			  </div>
+				
+				<img id="img" class="media-object" style="width:100%">
+				</div>
   			</p>
-  		</div>
+				</div>
+				
+
+<!-------- Slide and Text -------->
+
+<div class="flex-container">
+	<img id="slide-img" style="order: 2">
+	<p id="slide-txt" style="order: 1"></p>	
+	
+</div>
+	
+  	
   		<div class="panel-footer">
 		<ul class="pager">
-		  <li class="previous"><a href="#">Previous</a></li>
-		  <li class="next"><a href="#" value ="view Image" id="viewbtn" onclick="showimage();">Next</a></li>
+		  <li class="previous"><a href="#" id="previousslide" style="visibility: hidden" onclick="previousSlide()">Previous</a></li>
+		  <li class="next"><a href="#" value ="start module" id="startmodule" style="visibility: visible" onclick="PopulateModule();">Start Module</a></li>
+			<li class="next"><a href="#" value ="view Image" id="nextslide" style="visibility: hidden" onclick="nextSlide();">Next</a></li>
 		</ul>
   		</div>
   	</div>
