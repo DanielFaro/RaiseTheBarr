@@ -5,34 +5,37 @@ const PreviousButton = document.getElementById('previousslide');
 const slideTxt = document.getElementById('slide-txt');
 const slideImg = document.getElementById('slide-img');
 var imgsrc = [];
+var modNum;
 
-//var slidecontent = [];
 let n = 0;
 var training = [];
 
-var modNum = 1;
+const getModuleIndex = (hash) => {
+    switch(hash) {
+        case '#1': return 1; 
+        case '#2': return 2;
+        case '#3': return 3;
+        case '#4': return 4;
+        case '#5': return 5;
+        case '#6': return 6;
+        case '#7': return 7;
+        case '#8': return 8;
+        case '#9': return 9;
+        case '#10': return 10;
+        default: return 1;
+    }
+}
 
-//const Modules =  {
-  //  modules: [];
 
-
-//}
 
 console.log("content.js loaded");
 
 
-//set module from firebase
 
-//if module 1 selected etc
 
-function setmodNum(num){
-    console.log("hey");
-   modNum = num;
-    //Module();
-}
-
-var Module = function () {
-    console.log(modNum);
+var ModFill = function () {
+    //var modNum = getModuleIndex(window.location.hash);
+    //console.log(modNum);
    // var training = [];
     Content.on('value', (snapshot) => {  //fill Slide arrays with text and img sources from database
         console.log('on.value');
@@ -63,6 +66,12 @@ var Module = function () {
     })
    
 };//end of module
+
+const callModFill = (function() {
+    modNum = getModuleIndex(window.location.hash);
+    ModFill(modNum);
+
+})();
 
 
 
@@ -126,9 +135,17 @@ function previousSlide() {
 function nextSlide() {
     //console.log(training[0].text);
     //getTraining();
-    StartButton.style.visibility = 'hidden';  //hide startmodule button
-    NextButton.style.visibility = 'visible';  //show nextslide button
-    if (n == 0) {
+   //StartButton.style.visibility = 'hidden';  //hide startmodule button
+    //NextButton.style.visibility = 'visible';  //show nextslide button
+    if (modNum == 1 && n == 0) {
+        PreviousButton.style.visibility = 'hidden';    //Set first slide in stone -> hide previous button, img first, text second. 
+        slideImg.style.order = '1';
+        slideTxt.style.order = '2';
+        slideTxt.appendChild(arrToUl(training[0].heading));
+        slideImg.src = (training[0].img);
+        n++
+    }
+    else if (n == 0) {
         console.log("first slide created");
         PreviousButton.style.visibility = 'hidden';    //Set first slide in stone -> hide previous button, img first, text second. 
         slideImg.style.order = '1';
@@ -155,39 +172,7 @@ function nextSlide() {
 }
 
 
-//change quiz reveal function equal to this so it can be used, or use toggle class.
-/*---------------Toggle hide and order functions------------------*/
-/*function togglehide(element) {
-
-    if (element.style.visibility === "visible") {
-        element.style.visibility = "hidden";
-    } else {
-        element.style.visibility = "visible";
-    }
-}*/
 
 
-/*function showimage() {
-
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
-    var tangRef = storageRef.child('images/test5.jpg');
-
-    firebase.auth().signInAnonymously().then(function () {
-
-        tangRef.getDownloadURL().then(function (url) {
-            document.querySelector('slide-img').src = url;
-
-        }).catch(function (error) {
-            console.error(error);
-        });
-    });
-
-} */
 
 
-class _Module {
-    constructor(slides) {
-        this.slides = slides
-    }
-}

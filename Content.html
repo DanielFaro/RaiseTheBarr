@@ -10,10 +10,13 @@
 	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	  <link rel="stylesheet" href="assets/css/ContentStyle.css">
 		
+
 	  	<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 			<script src="assets/js/firebaseConfig.js"></script>
-			<script src="assets/js/content_controller.js" defer></script>
-			<script src="assets/js/content.js" defer></script>
+			
+			
+			<!--<script src="assets/js/content_controller.js" defer></script>-->
+			
 			
   	
 	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -56,11 +59,29 @@
 <br>
 <br>
 
+<!---Module List---->
+<!--script for setting module with firebase call-->
+	<div class="list-group">
+		<a href="./Modules.html#1" class="list-group-item">Module 1</a>
+		<a href="./Modules.html#2" class="list-group-item">Module 2</a>
+		<a href="./Modules.html#3" class="list-group-item">Module 3</a>
+		<a href="./Modules.html#4" class="list-group-item">Module 4</a>
+		<a href="./Modules.html#5" class="list-group-item">Module 5</a>
+		<a href="./Modules.html#6" class="list-group-item">Module 6</a>
+		<a href="./Modules.html#7" class="list-group-item">Module 7</a>
+		<a href="./Modules.html#8" class="list-group-item">Module 8</a>
+		<a href="./Modules.html#9" class="list-group-item">Module 9</a>
+		<a href="./Modules.html#10" class="list-group-item">Module 10</a>		
+	</div>
 
-  	<!-- DISPLAY CONTENT FROM FIREBASE-->
+	<script>
+		var modNum = -1;
+	</script>
+
+  	<!-- DISPLAY CONTENT FROM FIREBASE
   	<div class="panel panel-default">
   		<div class="panel-heading">
-  		MODULE 1 : TOPIC
+  		
   		</div>
   		<div class="panel-body">
   			<p>
@@ -70,28 +91,27 @@
 				</div>
   			</p>
 				</div>
-				
+---------->
 
-<!-------- Slide and Text -------->
+<!-------- Slide and Text
 
 <div class="flex-container">
 	<img id="slide-img" style="order: 2">
 	<p id="slide-txt" style="order: 1"></p>	
-	
 </div>
 	
   	
   		<div class="panel-footer">
 		<ul class="pager">
 		  <li class="previous"><a href="#" id="previousslide" style="visibility: hidden" onclick="previousSlide()">Previous</a></li>
-		  <li class="next"><a href="#" value ="start module" id="startmodule" style="visibility: visible" onclick="PopulateModule();">Start Module</a></li>
+		  <li class="next"><a href="#" value ="start module" id="startmodule" style="visibility: visible" onclick="nextSlide();">Start Module</a></li>
 			<li class="next"><a href="#" value ="view Image" id="nextslide" style="visibility: hidden" onclick="nextSlide();">Next</a></li>
 		</ul>
   		</div>
   	</div>
 
-  </div>
-
+  </div> 
+---------------->
 
   </body>
 </html>

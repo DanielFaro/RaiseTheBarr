@@ -16,6 +16,7 @@ body{
   border-radius: 40px;
   margin: 10px 40px 10px 0px;
   padding: 10px 10px;
+  color: white;
 }
 
 #submit, #nxt, #calculate{
@@ -40,6 +41,12 @@ body{
   cursor: pointer;
   background-color: #57636e;
 }
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus{
+#btn1:focus, #btn2:focus, #btn3:focus, #btn4:focus{
   outline: 0;
 }
+.selected{
+  background-color: blue;
+}
+
+
+
