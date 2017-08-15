@@ -153,6 +153,18 @@ p{
     
     }
 
+    .FirstSlide {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+
+    .hidden {
+        display: 'none';
+    }
+
+    
+
   #slide-img, #slide-txt{
       
       animation-name: slide;
