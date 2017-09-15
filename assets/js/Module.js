@@ -7,6 +7,7 @@ const firstSlideHeading = document.getElementById('first-slide-heading');
 const firstSlideImg = document.getElementById('first-slide-img');
 const slideTxt = document.getElementById('slide-txt');
 const slideImg = document.getElementById('slide-img');
+const slideTitle = document.getElementById('all')
 const flexcontainer = document.getElementsByClassName('flex-container');
 const ul = document.getElementById("ul");
 var imgsrc = []; var training = [];
@@ -16,8 +17,8 @@ let n = 0;
 
 const getModuleIndex = (hash) => {
     switch (hash) {
-        case '#1': return 1; case '#2': return 2; case '#3': return 3; case '#4': return 4;case '#5': return 5;
-        case '#6': return 6; case '#7': return 7;case '#8': return 8; case '#9': return 9; case '#10': return 10;
+        case '#1': return 1; case '#2': return 2; case '#3': return 3; case '#4': return 4; case '#5': return 5;
+        case '#6': return 6; case '#7': return 7; case '#8': return 8; case '#9': return 9; case '#10': return 10;
         default: return 1;
     }
 }
@@ -27,12 +28,14 @@ var ModFill = function () {  //fill training array with slides
     Content.once('value', (snapshot) => {
 
         SlideTot = snapshot.child("Module" + modNum + "/SlideTot").val();   //set SlideTot to number of slides contained in module 
-        
+
         for (var i = 1; i <= SlideTot; i++) {
             let texts = [];
+            let x = 1;
+            let mains = snapshot.child("Module" + modNum + "/" + i + "/Text" + x + "/Main/").val();
 
-            for (var x = 1; x <= 2; x++) {
-                let mains = snapshot.child("Module" + modNum + "/" + i + "/Text" + x + "/Main/").val();
+            do {
+                
                 texts.push(mains);
                 let bullets = snapshot.child("Module" + modNum + "/" + i + "/Text" + x + "/Bullet").toJSON();
                 let itemArr = [];
@@ -40,7 +43,9 @@ var ModFill = function () {  //fill training array with slides
                     itemArr.push(bullets[item]);
                 }
                 texts.push(itemArr);
-            }
+                x++;
+                mains = snapshot.child("Module" + modNum + "/" + i + "/Text" + x + "/Main/").val();
+            } while (mains != undefined);
 
             const slide = {
                 img: snapshot.child("Module" + modNum + "/" + i + "/Img").val(),
@@ -54,7 +59,7 @@ var ModFill = function () {  //fill training array with slides
 };//end of ModFill
 
 const callModFill = (function () {
-   slideImg.style.display = 'none';  //hide flex img element on first loading
+    slideImg.style.display = 'none';  //hide flex img element on first loading
     slideTxt.style.display = 'none';  //hide flex text element on first loading
     modNum = getModuleIndex(window.location.hash);
     ModFill(modNum);
@@ -108,16 +113,17 @@ function previousSlide() {
 
     } else if (n < SlideTot) {
         toggleorder(slideTxt, slideImg);
-      //  flexcontainer.style.display = 'flex';
+        //  flexcontainer.style.display = 'flex';
+
         slideImg.src = training[n - 1].img;
         slideTxt.appendChild(arrToUl(training[n - 1].text));
-    } 
+    }
 }
 
 function nextSlide() {
     console.log(n);
     //make it so it doesn't need to check the follwing every time
-  
+
 
     if (n == 0) {
         console.log("first slide created");
